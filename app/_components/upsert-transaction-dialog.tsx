@@ -147,6 +147,7 @@ function UpsertTransactionDialog({
                   <FormLabel>Amount</FormLabel>
                   <FormControl>
                     <MoneyInput
+                      value={field.value}
                       placeholder="Type the value.."
                       onValueChange={(floatValue) => {
                         field.onChange(floatValue);

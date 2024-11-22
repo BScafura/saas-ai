@@ -13,7 +13,7 @@ export const MoneyInput = forwardRef(
         {...props}
         thousandSeparator="."
         decimalSeparator=","
-        prefix="R$ "
+        prefix="€"
         allowNegative={false}
         customInput={Input}
         getInputRef={ref}
