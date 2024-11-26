@@ -27,8 +27,9 @@ export default async function Home({ searchParams: { month } }: HomeProps) {
           <MonthSelect></MonthSelect>
         </div>
       </div>
-
-      <SummaryCard month={month}></SummaryCard>
+      <div className="grid grid-cols-[2fr,1fr]">
+        <SummaryCard month={month}></SummaryCard>
+      </div>
     </>
   );
 }

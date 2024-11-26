@@ -27,19 +27,15 @@ const MONTH_OPTIONS = [
 function MonthSelect() {
   const { push } = useRouter();
   const searchParams = useSearchParams();
-  const defaultMonth = (new Date().getMonth() + 1).toString();
-  const month = searchParams.get("month") || defaultMonth;
-
+  const month = searchParams.get("month");
   function handleMonthSelect(month: string) {
     push(`/?month=${month}`);
   }
-
   return (
     <Select
       onValueChange={(value) => {
         handleMonthSelect(value);
       }}
-      defaultValue={month}
     >
       <SelectTrigger className="w-[150px] rounded-full">
         <SelectValue placeholder="Month"></SelectValue>

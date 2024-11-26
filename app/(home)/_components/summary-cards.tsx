@@ -12,10 +12,21 @@ interface MonthSelector {
 }
 
 const SummaryCard = async ({ month }: MonthSelector) => {
+  const year = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const monthNumber = month ? Number(month) : currentMonth;
+
+  if (isNaN(monthNumber) || monthNumber < 1 || monthNumber > 12) {
+    throw new Error("Invalid month provided");
+  }
+
+  const startDate = new Date(`${year}-${monthNumber}-01`);
+  const endDate = new Date(year, monthNumber, 0); // Last day of the month
+
   const where = {
     date: {
-      gte: new Date(`2024-${month}-01 `),
-      lt: new Date(`2024-${month}-31 `),
+      gte: startDate,
+      lt: endDate,
     },
   };
   const depositTotal = (
